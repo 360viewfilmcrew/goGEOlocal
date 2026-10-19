@@ -446,7 +446,7 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 @media (max-width:520px){.hot span{display:none}.pub li{font-size:13px;padding:8px 13px}.demo{aspect-ratio:4/3}}
 
 @media (max-width:820px){
-  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding:calc(env(safe-area-inset-top,0px) + 100px) var(--gutter) calc(84px + env(safe-area-inset-bottom,0px));gap:16px}
+  .hero{height:auto;min-height:calc(100svh - 76px - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;justify-content:flex-end;padding:calc(env(safe-area-inset-top,0px) + 100px) var(--gutter) 16px;gap:16px}
   .hero .copy{gap:14px}
   .sub{font-size:15px}
   .mhint{display:flex}
