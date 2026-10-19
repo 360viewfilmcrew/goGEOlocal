@@ -401,6 +401,7 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .get-body p{margin:0;color:var(--muted);font-size:15.5px;max-width:46ch}
 .plus{align-self:center;justify-self:center;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--display-weight);font-size:48px;line-height:1;color:var(--accent-ink);background:var(--accent-solid);box-shadow:0 0 0 8px color-mix(in srgb,var(--accent-solid) 22%,transparent),0 18px 40px -12px color-mix(in srgb,var(--accent-solid) 90%,transparent)}
 .pub{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:820px){.pub{flex-direction:column;align-items:stretch}.pub li{font-size:15px;padding:12px 16px}}
 .pub li{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:500;background:var(--panel)}
 .pub li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
 .pub li.hl{border-color:color-mix(in srgb,var(--accent) 60%,transparent);background:color-mix(in srgb,var(--accent) 10%,var(--panel))}
@@ -413,6 +414,9 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .shared li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;padding-top:12px}
 .tier{position:relative;border:1px solid var(--line);border-radius:20px;background:var(--ink);padding:clamp(20px,2.6vw,28px);display:grid;grid-template-rows:auto auto auto 1fr auto;gap:14px;min-width:0}
+.tier:not(.pop){border-color:color-mix(in srgb,var(--text) 78%,transparent);transition:border-color .2s,box-shadow .2s}
+.tier:not(.pop):hover,.tier:not(.pop).on,.tier:not(.pop):focus-within{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 30px 70px -36px color-mix(in srgb,var(--accent-solid) 90%,transparent)}
+.tier:not(.pop):hover .btn-ghost,.tier:not(.pop).on .btn-ghost,.tier:not(.pop):focus-within .btn-ghost{background:var(--accent-solid);border-color:var(--accent-solid);color:var(--accent-ink)}
 .tier.pop{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 30px 70px -36px color-mix(in srgb,var(--accent-solid) 90%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--accent-solid) 12%,var(--ink)),var(--ink) 55%)}
 .badge{position:absolute;top:-12px;left:clamp(20px,2.6vw,28px);background:var(--accent-solid);color:var(--accent-ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px}
 .t-name{margin:0;font-family:var(--display);font-weight:var(--display-weight);text-transform:var(--display-case);font-stretch:var(--display-stretch);font-size:calc(1.45rem * var(--h1-scale));line-height:1;letter-spacing:.01em}
@@ -579,11 +583,11 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
       <span class="plus" aria-hidden="true">+</span>
       <article class="get-card">
         <div class="poi"><img src="img/poi-1.jpg" alt="Professional photo of a furniture showroom" loading="lazy"><img src="img/poi-2.jpg" alt="Professional photo of a med spa reception desk" loading="lazy"><img src="img/poi-3.jpg" alt="Professional photo of a restaurant bar" loading="lazy"></div>
-        <div class="get-body"><span class="get-k">Professional visual assets</span><h3>Edited point-of-interest photos</h3><p>10 to 30 professionally edited photos of your entrance, interior and the details that sell you. Yours to use anywhere.</p></div>
+        <div class="get-body"><span class="get-k">Professional visual assets</span><h3>Edited point-of-interest photos</h3><p>10 to 30 professionally edited photos covering your entrance, interior and all of the point-of-interest shots that best represent your business.</p></div>
       </article>
     </div>
     <ul class="pub" aria-label="Where it shows up">
-      <li>Google Maps</li><li>Google Business Profile</li><li>Google Street View</li><li class="hl">Website 360 embed · no hosting fees</li>
+      <li>Google Maps</li><li>Google Street View</li><li>Google Business Profile</li><li>Website 360 embeddable link</li><li class="hl">Full content folder, yours to use anywhere</li>
     </ul>
   </div>
 </section>
@@ -593,7 +597,6 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
     <header class="sec-head">
       <p class="eyebrow"><i></i>Packages</p>
       <h2 id="pkg-title">Pick your coverage. Pay at the shoot.</h2>
-      <p>Every package is the same professional service. The difference is how much of your business we cover.</p>
     </header>
     <div class="shared">
       <span class="lbl">Every package includes</span>
@@ -1340,6 +1343,10 @@ function setState(st){ const l=$('#listing'); l.dataset.state=st; l.classList.to
   $('#st-before').setAttribute('aria-pressed', st==='before'); $('#st-after').setAttribute('aria-pressed', st==='after'); }
 $('#st-before').addEventListener('click', ()=>setState('before'));
 $('#st-after').addEventListener('click', ()=>setState('after'));
+document.querySelectorAll('.tier:not(.pop)').forEach(t => t.addEventListener('pointerdown', () => {
+  document.querySelectorAll('.tier.on').forEach(o => { if (o !== t) o.classList.remove('on'); });
+  t.classList.add('on');
+}));
 /* ───── SITE SETTINGS: fill these in when the links are ready ───── */
 const BOOKING_URL = 'https://calendar.app.google/eQEj3reuLJ5Dr1bd8';                          // Google Calendar booking page. Empty = scroll to the contact form.
 const SOCIAL = { facebook: 'https://www.facebook.com/people/360-View-Film-Crew/61564586767416/', google: 'https://share.google/5Hr2AAEuKY0ThZEBi' };     // Facebook page and Google Business Profile links
