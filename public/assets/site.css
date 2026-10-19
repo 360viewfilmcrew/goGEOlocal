@@ -388,10 +388,9 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .shared li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;padding-top:12px}
 .tier{position:relative;border:1px solid var(--line);border-radius:20px;background:var(--ink);padding:clamp(20px,2.6vw,28px);display:grid;grid-template-rows:auto auto auto 1fr auto;gap:14px;min-width:0}
-.tier:not(.pop){border-color:color-mix(in srgb,var(--text) 78%,transparent);transition:border-color .2s,box-shadow .2s}
-.tier:not(.pop):hover,.tier:not(.pop).on,.tier:not(.pop):focus-within{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 30px 70px -36px color-mix(in srgb,var(--accent-solid) 90%,transparent)}
-.tier:not(.pop):hover .btn-ghost,.tier:not(.pop).on .btn-ghost,.tier:not(.pop):focus-within .btn-ghost{background:var(--accent-solid);border-color:var(--accent-solid);color:var(--accent-ink)}
-.tier.pop{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 30px 70px -36px color-mix(in srgb,var(--accent-solid) 90%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--accent-solid) 12%,var(--ink)),var(--ink) 55%)}
+.tier{border-color:color-mix(in srgb,var(--text) 78%,transparent);transition:border-color .2s,box-shadow .2s,background .2s}
+.tier.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 30px 70px -36px color-mix(in srgb,var(--accent-solid) 90%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--accent-solid) 12%,var(--ink)),var(--ink) 55%)}
+.tier.sel .btn-ghost,.tier.sel .btn-ghost:hover{background:var(--accent-solid);border-color:var(--accent-solid);color:var(--accent-ink)}
 .badge{position:absolute;top:-12px;left:clamp(20px,2.6vw,28px);background:var(--accent-solid);color:var(--accent-ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px}
 .t-name{margin:0;font-family:var(--display);font-weight:var(--display-weight);text-transform:var(--display-case);font-stretch:var(--display-stretch);font-size:calc(1.45rem * var(--h1-scale));line-height:1;letter-spacing:.01em}
 .t-price{margin:0;font-family:var(--display);font-weight:var(--display-weight);font-stretch:var(--display-stretch);font-size:calc(3.4rem * var(--h1-scale));line-height:.9;font-variant-numeric:tabular-nums}
