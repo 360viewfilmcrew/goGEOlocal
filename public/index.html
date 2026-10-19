@@ -390,8 +390,8 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .get-grid{display:grid;grid-template-columns:minmax(0,1.25fr) auto minmax(0,1fr);gap:20px;align-items:stretch}
 .get-card{margin:0;border:1px solid var(--line);border-radius:20px;background:var(--panel);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
 .get-media{aspect-ratio:16/9;background:var(--raise);position:relative;overflow:hidden}
-.get-media img{width:100%;height:100%;object-fit:cover;display:block}
-.get-media .tag{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,10,16,.72);color:#fff;padding:5px 9px;border-radius:999px}
+.get-media img,.get-media iframe{width:100%;height:100%;object-fit:cover;display:block;border:0}
+.get-media .tag{pointer-events:none;position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,10,16,.72);color:#fff;padding:5px 9px;border-radius:999px}
 .poi{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:3px;aspect-ratio:16/9}
 .poi img{width:100%;height:100%;object-fit:cover;display:block;min-height:0}
 .poi img:first-child{grid-row:1 / span 2}
@@ -577,8 +577,8 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
     </header>
     <div class="get-grid">
       <article class="get-card">
-        <div class="get-media"><img src="img/get-tour.jpg" alt="360° view of an event space captured for Google" loading="lazy" width="1200" height="640"><span class="tag">Real capture</span></div>
-        <div class="get-body"><span class="get-k">Immersive experience</span><h3>Connected 360° walkthrough</h3><p>Customers move through your space from the entrance inward, right from your Google listing.</p></div>
+        <div class="get-media"><iframe src="https://www.google.com/maps/embed?pb=!4v1792447058736!6m8!1m7!1sCAoSHENJQUJJaEFHYnphcTR4Tnd4V2ZlN1dvQUJOeko.!2m2!1d27.9565392366797!2d-82.52877241868867!3f1.232912596300082!4f0.2386698818863664!5f1.7322131528439364" title="Live 360° Google tour of a client business" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="get-body"><span class="get-k">Immersive experience</span><h3>Connected 360° Tour</h3><p>Let customers virtually walk through your business, directly from Google Maps.</p></div>
       </article>
       <span class="plus" aria-hidden="true">+</span>
       <article class="get-card">
