@@ -100,6 +100,27 @@
   </div>
 </section>
 
+<section class="sec get" id="services" aria-labelledby="get-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><i></i>Google Visibility</p>
+      <h2 id="get-title">Show them the shop before they pull up.</h2>
+      <p>Two professional assets built for your Google listing: a walk-through of your shop and photos that show off your glass, displays and vibe.</p>
+    </header>
+    <div class="get-grid">
+      <article class="get-card">
+        <div class="get-media"><iframe src="https://www.google.com/maps/embed?pb=!4v1792527366866!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDdxSWVPSEE.!2m2!1d28.09830491286854!2d-82.73878761492817!3f5.684342e-14!4f0!5f0.7820865974627469" title="Live 360° Google tour of a smoke shop" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="get-body"><span class="get-k">Immersive experience</span><h3>Connected 360° Tour</h3><p>Let customers virtually walk through your business, directly from Google Maps.</p></div>
+      </article>
+      <span class="plus" aria-hidden="true">+</span>
+      <article class="get-card">
+        <figure class="gcard"><div class="ph"><img src="/img/smoke/poi-1.jpg" alt="Lit glass display case" loading="lazy"><img src="/img/smoke/poi-2.jpg" alt="Smoke shop counter and product walls" loading="lazy"><img src="/img/smoke/poi-4.jpg" alt="Smoke shop entrance with green sign" loading="lazy"></div></figure>
+        <div class="get-body"><span class="get-k">Professionally edited photos</span><h3>Point-of-interest photos</h3><p>10 to 30 professionally edited photos covering your entrance, interior and all of the point-of-interest shots that best represent your business.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="sec pains" id="problems" aria-labelledby="pain-title">
   <div class="wrap">
     <header class="sec-head">
@@ -115,26 +136,7 @@
   </div>
 </section>
 
-<section class="sec get" id="services" aria-labelledby="get-title">
-  <div class="wrap">
-    <header class="sec-head">
-      <p class="eyebrow"><i></i>Google Visibility</p>
-      <h2 id="get-title">Show them the shop before they pull up.</h2>
-      <p>Two professional assets built for your Google listing: a walk-through of your shop and photos that show off your glass, displays and vibe.</p>
-    </header>
-    <div class="get-grid">
-      <article class="get-card">
-        <div class="get-media"><iframe src="https://www.google.com/maps/embed?pb=!4v1792527366866!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDdxSWVPSEE.!2m2!1d28.09830491286854!2d-82.73878761492817!3f5.684342e-14!4f0!5f0.7820865974627469" title="Live 360° Google tour of a smoke shop" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <div class="get-body"><span class="get-k">Immersive experience</span><h3>Connected 360° Tour</h3><p>Let customers virtually walk through your business, directly from Google Maps.</p></div>
-      </article>
-      <span class="plus" aria-hidden="true">+</span>
-      <article class="get-card">
-        <figure class="gcard"><div class="ph"><img src="/img/smoke/poi-1.jpg" alt="Lit glass display case" loading="lazy"><img src="/img/smoke/poi-2.jpg" alt="Smoke shop counter and product walls" loading="lazy"><div class="split"><img src="/img/smoke/poi-3.jpg" alt="Lounge seating" loading="lazy"><img src="/img/smoke/poi-4.jpg" alt="Smoke shop storefront" loading="lazy"></div></div></figure>
-        <div class="get-body"><span class="get-k">Professionally edited photos</span><h3>Point-of-interest photos</h3><p>10 to 30 professionally edited photos covering your entrance, interior and all of the point-of-interest shots that best represent your business.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
+
 
 
 <section class="sec cap" id="capture" aria-labelledby="cap-title">
@@ -347,11 +349,11 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ───── options ───── */
 const SHOTS = [
-  {id:'s-glass', name:'Glass Room', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/glass-room.jpg', thumb:'/img/smoke/glass-room-thumb.jpg', yaw:-18},
+  {id:'s-front2', name:'Storefront', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-2.jpg', thumb:'/img/smoke/storefront-2-thumb.jpg', yaw:-48},
+  {id:'s-glass', name:'Glass Room', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/glass-room.jpg', thumb:'/img/smoke/glass-room-thumb.jpg', yaw:-58},
   {id:'s-floor', name:'Sales Floor', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/sales-floor.jpg', thumb:'/img/smoke/sales-floor-thumb.jpg', yaw:0},
-  {id:'s-front1', name:'Storefront', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-1.jpg', thumb:'/img/smoke/storefront-1-thumb.jpg', yaw:0},
-  {id:'s-kava', name:'Kava Lounge', kind:'Lounge', meta:'HDR', src:'/img/smoke/kava-lounge.jpg', thumb:'/img/smoke/kava-lounge-thumb.jpg', yaw:0},
-  {id:'s-front2', name:'Corner Storefront', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-2.jpg', thumb:'/img/smoke/storefront-2-thumb.jpg', yaw:-6},
+  {id:'s-front1', name:'Entrance', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-1.jpg', thumb:'/img/smoke/storefront-1-thumb.jpg', yaw:0, fov:1.75, pitch:16},
+  {id:'s-kava', name:'Kava Lounge', kind:'Lounge', meta:'HDR', src:'/img/smoke/kava-lounge.jpg', thumb:'/img/smoke/kava-lounge-thumb.jpg', yaw:-11},
 ];
 const TYPES = [
   {id:'monument', name:'Monument', note:'Syne + Manrope. Wide, architectural, confident. Reads like a studio that builds things.', font:"'Syne'", w:800},
@@ -384,8 +386,8 @@ const LAYS = [
   {id:'panel', name:'Desktop panel', note:'Listing on the left, the three problems stacked on the right.'},
   {id:'phone', name:'Phone in hand', note:'Listing inside a phone frame, problems flanking it. How most people actually see it.'},
 ];
-let S = {shot:'s-glass', type:'survey', pal:'obsidian', grade:'cinema', hl:'vibe', lay:'panel'};
-if (!SHOTS.find(x=>x.id===S.shot)) S.shot = 's-glass';
+let S = {shot:'s-front2', type:'survey', pal:'obsidian', grade:'cinema', hl:'vibe', lay:'panel'};
+if (!SHOTS.find(x=>x.id===S.shot)) S.shot = 's-front2';
 const save = () => { try { localStorage.setItem('herolab2', JSON.stringify(S)); } catch(e){} };
 let reelPage = 0, activeBar = null;
 const dockList = () => SHOTS.filter(o => o.dock!==false);
@@ -688,10 +690,11 @@ function frame(now){
     vel *= Math.pow(.0025, dt); velP *= Math.pow(.0025, dt);
     view.yaw += vel*dt*60*.5; view.pitch = Math.max(-80*D, Math.min(80*D, view.pitch + velP*dt*60*.5));
     const idle = now - lastInteract > 2600;
-    if (idle && !reduce){ view.yaw += (mix<1 ? .16 : .032)*dt*(mix<1?1:1); view.pitch += (-2*D - view.pitch)*Math.min(1,dt*.6); }
+    if (idle && !reduce){ view.yaw += (mix<1 ? .16 : .032)*dt*(mix<1?1:1); const tp = (((SHOTS.find(x=>x.id===S.shot)||{}).pitch) ?? -2)*D; view.pitch += (tp - view.pitch)*Math.min(1,dt*1.2); }
   }
   const e = mix;
-  const sPlanet = Math.log(3.1), sWalk = Math.log(Math.tan(fovV()/2));
+  const zf = (SHOTS.find(x=>x.id===S.shot)||{}).fov || 1;
+  const sPlanet = Math.log(3.1), sWalk = Math.log(Math.tan(Math.min(fovV()*zf, 140*D)/2));
   cam.yaw = view.yaw + planetSpin*(1-e);
   cam.pitch = (-90*D)*(1-e) + view.pitch*e;
   cam.scale = Math.exp(sPlanet*(1-e) + sWalk*e);
@@ -729,7 +732,7 @@ async function switchTo(id, byUser){
   if (tok !== switchTok) return;
   if (trans){ viewer.setFade(trans.to); trans = null; mix = mixFrom = mixTo = 1; }
   const next = 1 - curSlot;
-  viewer.upload(next, img); viewer.setOff(next, sh.yaw*D - view.yaw); ready = true;
+  viewer.upload(next, img); viewer.setOff(next, sh.yaw*D - view.yaw); view.pitch = (sh.pitch ?? -2)*D; ready = true;
   if (reduce){ viewer.setFade(next); curSlot = next; return; }
   planetSpin = -50*D; mixTo = 1; setModeButtons();
   trans = {t0: performance.now(), dur: 2600, from: curSlot, to: next};
