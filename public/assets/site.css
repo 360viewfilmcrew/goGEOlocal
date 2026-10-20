@@ -536,3 +536,6 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .gcard .gname{border-top:1px solid #3c4043;padding:13px 18px 14px;font-family:Roboto,Arial,sans-serif;font-size:19px;font-weight:500;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
 .gcard .gname svg{width:20px;height:20px;flex:none}
 @media (max-width:520px){.gcard .ph{aspect-ratio:4/3}.gcard .gname{font-size:17px}}
+
+.sub .sub1{display:block;color:var(--text);font-weight:600}
+.sub .sub2{display:block}
