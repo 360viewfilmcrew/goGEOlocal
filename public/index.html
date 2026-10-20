@@ -232,13 +232,7 @@
       <div class="ctas"><a class="btn btn-solid" href="#contact" data-pkg="Interactive 360 experience (custom)">Discuss Your Vision</a></div>
       <p class="custom-note">Custom projects · quoted individually</p>
     </div>
-    <figure class="demo" id="demo">
-      <img src="img/demo.jpg" alt="Showroom 360 view with example interactive hotspots" loading="lazy" width="1200" height="740">
-      <div class="hot" style="left:46%;top:42%"><i></i><span>Product details</span></div>
-      <div class="hot" style="left:74%;top:30%"><i></i><span>Watch the video</span></div>
-      <div class="hot" style="left:22%;top:62%"><i></i><span>Book a visit</span></div>
-      <figcaption>Example layout · live interactive tour coming soon</figcaption>
-    </figure>
+    <figure class="demo" id="demo"><iframe src="https://tourmkr.com/F1Y1OYs6bS" title="Interactive 360 experience example" allow="autoplay; fullscreen; gyroscope; xr-spatial-tracking" allowfullscreen loading="lazy"></iframe></figure>
   </div>
 </section>
 
@@ -814,7 +808,7 @@ document.querySelectorAll('.rv .more').forEach(b=>b.addEventListener('click',()=
 /* ───── SITE SETTINGS: fill these in when the links are ready ───── */
 const BOOKING_URL = 'https://calendar.app.google/eQEj3reuLJ5Dr1bd8';                          // Google Calendar booking page. Empty = scroll to the contact form.
 const SOCIAL = { facebook: 'https://www.facebook.com/people/360-View-Film-Crew/61564586767416/', google: 'https://share.google/5Hr2AAEuKY0ThZEBi' };     // Facebook page and Google Business Profile links
-const DEMO_TOUR_URL = '';                        // Embed link for the live interactive 360 example
+const DEMO_TOUR_URL = '';  // demo iframe is written directly in the page                        // Embed link for the live interactive 360 example
 
 document.querySelectorAll('[data-book]').forEach(a => {
   if (BOOKING_URL){ a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; }
