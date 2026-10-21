@@ -349,11 +349,11 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ───── options ───── */
 const SHOTS = [
-  {id:'s-front2', name:'Storefront', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-2.jpg', thumb:'/img/smoke/storefront-2-thumb.jpg', yaw:-48},
-  {id:'s-glass', name:'Glass Room', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/glass-room.jpg', thumb:'/img/smoke/glass-room-thumb.jpg', yaw:-58},
-  {id:'s-floor', name:'Sales Floor', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/sales-floor.jpg', thumb:'/img/smoke/sales-floor-thumb.jpg', yaw:0},
-  {id:'s-front1', name:'Entrance', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-1.jpg', thumb:'/img/smoke/storefront-1-thumb.jpg', yaw:0, fov:1.75, pitch:16},
-  {id:'s-kava', name:'Kava Lounge', kind:'Lounge', meta:'HDR', src:'/img/smoke/kava-lounge.jpg', thumb:'/img/smoke/kava-lounge-thumb.jpg', yaw:-11},
+  {id:'s-front2', name:'Storefront', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-2.jpg', thumb:'/img/smoke/storefront-2-thumb.jpg', yaw:-24},
+  {id:'s-glass', name:'Glass Room', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/glass-room.jpg', thumb:'/img/smoke/glass-room-thumb.jpg', yaw:-84, fov:1.4, pitch:-14},
+  {id:'s-floor', name:'Sales Floor', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/sales-floor.jpg', thumb:'/img/smoke/sales-floor-thumb.jpg', yaw:2},
+  {id:'s-front1', name:'Entrance', kind:'Smoke shop', meta:'HDR', src:'/img/smoke/storefront-1.jpg', thumb:'/img/smoke/storefront-1-thumb.jpg', yaw:-6, fov:1.9, pitch:12},
+  {id:'s-kava', name:'Kava Lounge', kind:'Lounge', meta:'HDR', src:'/img/smoke/kava-lounge.jpg', thumb:'/img/smoke/kava-lounge-thumb.jpg', yaw:-16},
 ];
 const TYPES = [
   {id:'monument', name:'Monument', note:'Syne + Manrope. Wide, architectural, confident. Reads like a studio that builds things.', font:"'Syne'", w:800},
@@ -694,7 +694,7 @@ function frame(now){
   }
   const e = mix;
   const zf = (SHOTS.find(x=>x.id===S.shot)||{}).fov || 1;
-  const sPlanet = Math.log(3.1), sWalk = Math.log(Math.tan(Math.min(fovV()*zf, 140*D)/2));
+  const sPlanet = Math.log(3.1), sWalk = Math.log(Math.tan(Math.min(fovV()*zf, 152*D)/2));
   cam.yaw = view.yaw + planetSpin*(1-e);
   cam.pitch = (-90*D)*(1-e) + view.pitch*e;
   cam.scale = Math.exp(sPlanet*(1-e) + sWalk*e);
