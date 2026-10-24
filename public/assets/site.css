@@ -442,7 +442,7 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .social a svg{width:22px;height:22px;flex:none}
 .social a:hover{border-color:var(--accent)}
 
-@media (max-width:980px){.links{display:none}.tiers{grid-template-columns:minmax(0,1fr);max-width:560px;margin-inline:auto;width:100%;gap:24px}.get-grid{grid-template-columns:minmax(0,1fr)}.plus{justify-self:center;width:58px;height:58px;font-size:40px;margin-block:-4px}.beyond-in{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:980px){.links>li:not(.imenu){display:none}.tiers{grid-template-columns:minmax(0,1fr);max-width:560px;margin-inline:auto;width:100%;gap:24px}.get-grid{grid-template-columns:minmax(0,1fr)}.plus{justify-self:center;width:58px;height:58px;font-size:40px;margin-block:-4px}.beyond-in{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:520px){.hot span{display:none}.pub li{font-size:13px;padding:8px 13px}.demo{aspect-ratio:3/4}}
 
 @media (max-width:820px){
@@ -525,7 +525,7 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .closer .ctas{align-items:center}
 
 @media (max-width:980px){.revs-grid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:820px){.topbar .nav .btn-sm{display:none}.topbar .links{display:none}}
+@media (max-width:820px){.topbar .nav .btn-sm{display:none}.topbar .links>li:not(.imenu){display:none}}
 
 /* POI card styled as a Google listing */
 .gcard{margin:0;background:#202124;color:#e8eaed;overflow:hidden}
@@ -562,3 +562,32 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .cap-list li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent);flex:none}
 @media (max-width:980px){.board-grid,.pain-grid{grid-template-columns:minmax(0,1fr)}.cap-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.cap-list{grid-template-columns:minmax(0,1fr)}}
+
+/* ───────── INDUSTRIES MENU (all pages) ───────── */
+.nav{z-index:5}
+.imenu{position:relative}
+.imenu-btn{appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.imenu-btn:hover,.imenu.open .imenu-btn{color:var(--text)}
+.imenu-btn .chev{transition:transform .2s}
+.imenu.open .imenu-btn .chev{transform:rotate(180deg)}
+.imenu-btn.is-current{color:var(--text);text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--accent)}
+.imenu-panel{display:none;position:absolute;z-index:10;top:calc(100% + 14px);left:50%;transform:translateX(-50%);width:300px;padding:8px;gap:2px;border:1px solid var(--line);border-radius:16px;background:var(--panel);box-shadow:0 24px 60px -20px rgba(0,0,0,.65)}
+.imenu-panel::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.imenu.open .imenu-panel{display:grid}
+.imenu-k{margin:4px 10px 6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.imenu-panel a{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:center;padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--text)}
+.imenu-panel a:hover,.imenu-panel a:focus-visible,.imenu-panel a[aria-current="page"]{background:var(--raise)}
+.links .imenu-panel a[aria-current="page"]{text-decoration:none}
+.imenu-th{width:56px;height:40px;border-radius:8px;background:var(--raise) center/cover no-repeat}
+.imenu-panel b{display:block;font-size:15px;font-weight:600}
+.imenu-panel small{display:block;margin-top:2px;font-size:12.5px;line-height:1.35;color:var(--muted)}
+@media (max-width:980px){
+  .nav{gap:10px}
+  .links{margin-left:auto}
+  .imenu{position:static}
+  .imenu-btn{padding:10px 16px;font-size:14px;font-weight:600;color:var(--text);border-radius:999px;border:1px solid color-mix(in srgb,var(--text) 34%,transparent);background:color-mix(in srgb,var(--ink) 35%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .imenu-btn.is-current{text-decoration:none}
+  .imenu-panel{left:var(--gutter);right:var(--gutter);width:auto;transform:none;top:calc(100% + 10px)}
+}
+@media (max-width:520px){.imenu-btn{padding:9px 14px;font-size:13px}}
+@media (max-width:380px){.nav .mark img{width:54px;height:54px}.topbar .nav .mark img{width:52px;height:52px}.imenu-btn{padding:9px 12px}.nav .btn-sm{padding:9px 12px}}

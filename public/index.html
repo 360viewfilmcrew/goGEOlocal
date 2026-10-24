@@ -23,7 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Big+Shoulders+Display:wght@700;800;900&family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=1792614050">
+<link rel="stylesheet" href="/assets/site.css?v=1792868720">
+<script src="/assets/nav.js?v=1792868720" defer></script>
 </head>
 <body>
 <section class="hero" id="top" aria-label="Hero">
@@ -38,6 +39,7 @@
     </a>
     <ul class="links">
       <li><a href="#services">Services</a></li>
+      <li class="imenu"><button type="button" class="imenu-btn" aria-expanded="false" aria-controls="imenu-panel">Industries<svg class="chev" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="imenu-panel" id="imenu-panel"><p class="imenu-k">Pick your business</p><a href="/smoke-shops/"><span class="imenu-th" style="background-image:url('/img/smoke/menu-thumb.jpg')" aria-hidden="true"></span><span><b>Smoke Shops</b><small>Show your vibe before they pull up</small></span></a></div></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="/reviews/">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -392,7 +394,7 @@ function renderScenes(){
   const pages = Math.max(1, Math.ceil(list.length/5));
   for (let k=0; k<pages; k++){
     const d = document.createElement('button'); d.type='button'; d.className='dot'; d.setAttribute('aria-label', `Show scenes ${k*5+1} to ${Math.min(list.length,k*5+5)}`);
-    d.addEventListener('click', () => setPage(k)); dots.append(d);
+    d.addEventListener('click', () => goPage(k)); dots.append(d);
   }
   dots.hidden = pages < 2; $('#reel-prev').hidden = $('#reel-next').hidden = pages < 2;
   syncReel();
@@ -402,6 +404,12 @@ function setPage(k){
   reelPage = ((k % pages) + pages) % pages;
   $('#scenes').style.setProperty('--page', reelPage);
   document.querySelectorAll('#reel-dots .dot').forEach((d,i) => d.setAttribute('aria-current', i===reelPage));
+}
+function goPage(k){
+  const list = dockList(), pages = Math.max(1, Math.ceil(list.length/5));
+  const p = ((k % pages) + pages) % pages;
+  setPage(p);
+  if (list[p*5]) switchTo(list[p*5].id, true);   // hero jumps to the group's first scene, autoplay carries on from there
 }
 function syncReel(){
   const list = dockList(), idx = list.findIndex(o=>o.id===S.shot);
@@ -709,8 +717,8 @@ $('#reel-play').addEventListener('click', e => {
   b.setAttribute('aria-pressed', !userPaused); b.setAttribute('aria-label', userPaused ? 'Play the tour' : 'Pause the tour');
   b.innerHTML = userPaused ? ICON_PLAY : ICON_PAUSE;
 });
-$('#reel-prev').addEventListener('click', () => setPage(reelPage - 1));
-$('#reel-next').addEventListener('click', () => setPage(reelPage + 1));
+$('#reel-prev').addEventListener('click', () => goPage(reelPage - 1));
+$('#reel-next').addEventListener('click', () => goPage(reelPage + 1));
 
 /* ───── industries ───── */
 const IND = [
