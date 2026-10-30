@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gogeolocal.com/</loc></url>
-  <url><loc>https://gogeolocal.com/reviews/</loc></url>
-  <url><loc>https://gogeolocal.com/smoke-shops/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://gogeolocal.com/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <image:image><image:loc>https://gogeolocal.com/img/og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/poi-bar.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/poi-mural.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/poi-staff.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/poi-entry.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/jacob.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://gogeolocal.com/smoke-shops/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <image:image><image:loc>https://gogeolocal.com/img/smoke/og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/smoke/poi-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/smoke/poi-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/smoke/poi-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gogeolocal.com/img/jacob.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://gogeolocal.com/reviews/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <image:image><image:loc>https://gogeolocal.com/img/og.jpg</image:loc></image:image>
+  </url>
 </urlset>
