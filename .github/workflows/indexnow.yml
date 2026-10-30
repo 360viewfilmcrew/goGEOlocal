@@ -1,0 +1,32 @@
+# After each push that changes a page, tell Bing (and the other IndexNow search engines) which URLs changed.
+# Bing feeds ChatGPT search and Copilot, so this helps new pages show up there faster.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['public/**']
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wait for Cloudflare Pages to publish the update
+        run: sleep 150
+      - name: Send changed pages to IndexNow
+        env:
+          KEY: c9278ea63ea39d9fae29bbb61efcc69d
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if git cat-file -e "$BEFORE" 2>/dev/null; then
+            FILES=$(git diff --name-only "$BEFORE" HEAD -- public | grep 'index\.html$' || true)
+          else
+            FILES=$(git ls-files public | grep 'index\.html$')
+          fi
+          if [ -z "$FILES" ]; then echo "No page changes, nothing to send."; exit 0; fi
+          URLS=$(echo "$FILES" | sed -e 's#^public/##' -e 's#index\.html$##' -e 's#^#https://gogeolocal.com/#')
+          echo "$URLS"
+          BODY=$(echo "$URLS" | jq -R . | jq -s --arg key "$KEY" '{host: "gogeolocal.com", key: $key, keyLocation: ("https://gogeolocal.com/" + $key + ".txt"), urlList: .}')
+          curl -sS -o /dev/null -w "IndexNow answered HTTP %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY"
