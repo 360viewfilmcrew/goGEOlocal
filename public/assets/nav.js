@@ -9,3 +9,16 @@ document.querySelectorAll('.imenu').forEach(li => {
   document.addEventListener('click', e => { if (!li.contains(e.target)) set(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && li.classList.contains('open')) { set(false); btn.focus(); } });
 });
+
+// Reviews carousel: swipe with a thumb, arrows on desktop, dots show where you are.
+document.querySelectorAll('.rcar').forEach(car => {
+  const track = car.querySelector('.rcar-track'), cards = [...track.children], dots = car.querySelector('.rcar-dots');
+  const step = () => cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth;
+  const stops = () => Math.max(1, Math.round((track.scrollWidth - track.clientWidth) / step()) + 1);
+  const sync = () => { const k = Math.min(Math.round(track.scrollLeft / step()), stops() - 1); [...dots.children].forEach((d, n) => d.classList.toggle('on', n === k)); };
+  const build = () => { dots.textContent = ''; for (let n = 0; n < stops(); n++) dots.append(document.createElement('i')); sync(); };
+  track.addEventListener('scroll', () => requestAnimationFrame(sync), {passive: true});
+  addEventListener('resize', build);
+  car.querySelectorAll('.rcar-btn').forEach(b => b.addEventListener('click', () => track.scrollBy({left: step() * +b.dataset.dir, behavior: 'smooth'})));
+  build();
+});

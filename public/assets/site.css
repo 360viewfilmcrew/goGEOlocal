@@ -430,7 +430,6 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 
 /* homepage reviews */
 .revs{background:var(--ink)}
-.revs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
 .revs-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
 
 /* reviews page */
@@ -444,7 +443,6 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .closer .wrap{justify-items:start}
 .closer .ctas{align-items:center}
 
-@media (max-width:980px){.revs-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:820px){.topbar .nav .btn-sm{display:none}.topbar .links>li:not(.imenu){display:none}}
 
 /* POI card styled as a Google listing */
@@ -518,3 +516,20 @@ h1 em{font-style:var(--em-style);color:var(--em-color)}
 .nf-links{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .nf-links a{display:inline-flex;padding:9px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--text);font-size:14px;font-weight:600;background:var(--panel)}
 .nf-links a:hover{border-color:var(--accent)}
+
+/* ───────── REVIEWS CAROUSEL (homepage + industry pages) ───────── */
+.rcar{display:grid;gap:18px}
+.rcar-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rcar-track::-webkit-scrollbar{display:none}
+.rcar-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:20px}
+.rcar-track>.rv{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.rcar-track>.rv figcaption{margin-top:auto}
+.rcar-track>.rv .more{align-self:flex-start}
+.rcar-nav{display:flex;align-items:center;justify-content:center;gap:14px}
+.rcar-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer}
+.rcar-btn:hover{border-color:var(--accent)}
+.rcar-dots{display:flex;gap:6px}
+.rcar-dots i{width:7px;height:7px;border-radius:99px;background:color-mix(in srgb,var(--text) 30%,transparent);transition:width .25s,background .25s}
+.rcar-dots i.on{width:22px;background:var(--accent)}
+@media (max-width:980px){.rcar-track{grid-auto-columns:calc((100% - 16px)/2)}}
+@media (max-width:640px){.rcar-track{grid-auto-columns:84%;gap:12px;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}.rcar-btn{display:none}}
